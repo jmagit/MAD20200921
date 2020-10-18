@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "3828c397-5a64-49a0-af90-09fc097d370c",
+		"name": "Ejemplos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Novedades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/novedades?fecha=2020-01-01 00:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"novedades"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2020-01-01 00:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar pelicula",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filmId\": 1,\r\n    \"description\": \"A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies\",\r\n    \"length\": 86,\r\n    \"rating\": \"PG\",\r\n    \"releaseYear\": \"2005\",\r\n    \"rentalDuration\": 6,\r\n    \"rentalRate\": 0.99,\r\n    \"replacementCost\": 20.99,\r\n    \"title\": \"ACADEMY DINOSAUR\",\r\n    \"languageId\": 2,\r\n    \"languageVOId\": 1,\r\n    \"filmActors\": [\r\n        1,\r\n        10,\r\n        20,\r\n        30,\r\n        40,\r\n        53,\r\n        108,\r\n        162,\r\n        188,\r\n        198\r\n    ],\r\n    \"filmCategories\": [\r\n        1,\r\n        2\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8001/peliculas/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Hateoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8001"
+			},
+			"response": []
+		},
+		{
+			"name": "Detalles pelicula",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filmId\": 1,\r\n    \"description\": \"A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies\",\r\n    \"length\": 86,\r\n    \"rating\": \"PG\",\r\n    \"releaseYear\": \"2005\",\r\n    \"rentalDuration\": 6,\r\n    \"rentalRate\": 0.99,\r\n    \"replacementCost\": 20.99,\r\n    \"title\": \"ACADEMY DINOSAUR\",\r\n    \"languageId\": 1,\r\n    \"languageVOId\": 2,\r\n    \"filmActors\": [\r\n        1,\r\n        10,\r\n        20,\r\n        30,\r\n        40,\r\n        53,\r\n        108,\r\n        162,\r\n        188,\r\n        198\r\n    ],\r\n    \"filmCategories\": [\r\n        1,\r\n        5,\r\n        6\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/peliculas/1?mode=details",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"peliculas",
+						"1"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "details"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Idiomas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8001/idiomas"
+			},
+			"response": []
+		},
+		{
+			"name": "Lista pelicula",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filmId\": 1,\r\n    \"description\": \"A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies\",\r\n    \"length\": 86,\r\n    \"rating\": \"PG\",\r\n    \"releaseYear\": \"2005\",\r\n    \"rentalDuration\": 6,\r\n    \"rentalRate\": 0.99,\r\n    \"replacementCost\": 20.99,\r\n    \"title\": \"ACADEMY DINOSAUR\",\r\n    \"languageId\": 1,\r\n    \"languageVOId\": 2,\r\n    \"filmActors\": [\r\n        1,\r\n        10,\r\n        20,\r\n        30,\r\n        40,\r\n        53,\r\n        108,\r\n        162,\r\n        188,\r\n        198\r\n    ],\r\n    \"filmCategories\": [\r\n        1,\r\n        5,\r\n        6\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/peliculas?page=0&size=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"peliculas"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/auto/peliculas?projection=FilmShot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/auto/peliculas?projection=FilmShot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auto",
+						"peliculas"
+					],
+					"query": [
+						{
+							"key": "projection",
+							"value": "FilmShot"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/auto/profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/auto/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/auto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/auto"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/auto/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/auto/"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/auto/peliculas/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/auto/peliculas/1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/auto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/auto"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
